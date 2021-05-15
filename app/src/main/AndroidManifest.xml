@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneBismillah">
-        <activity android:name=".start.RegisterActivity"></activity>
+        <activity
+            android:name=".start.HomeActivity"
+            android:label="@string/title_activity_home"></activity>
+        <activity android:name=".start.RegisterActivity" />
         <activity android:name=".start.LoginActivity" />
         <activity android:name=".start.StartActivity" />
         <activity android:name=".MainActivity">
