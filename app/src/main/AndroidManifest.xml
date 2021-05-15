@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.maheswari.capstonebismillah">
+    package="com.yps.layani">
 
     <application
         android:allowBackup="true"
@@ -8,20 +8,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CapstoneBismillah">
+        android:theme="@style/Theme.Layani">
         <activity
-            android:name=".start.HomeActivity"
-            android:label="@string/title_activity_home"></activity>
-        <activity android:name=".start.RegisterActivity" />
-        <activity android:name=".start.LoginActivity" />
-        <activity android:name=".start.StartActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name="com.yps.layani.start.HomeActivity"
+            android:label="@string/title_activity_home" />
+        <activity android:name="com.yps.layani.start.RegisterActivity" />
+        <activity android:name="com.yps.layani.start.LoginActivity" />
+        <activity android:name="com.yps.layani.start.StartActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
     </application>
+
 
 </manifest>

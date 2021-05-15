@@ -1,8 +1,8 @@
-package com.maheswari.capstonebismillah.start
+package com.yps.layani.start
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.maheswari.capstonebismillah.R
+import com.yps.layani.R
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

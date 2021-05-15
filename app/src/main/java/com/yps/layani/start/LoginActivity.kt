@@ -1,12 +1,12 @@
-package com.maheswari.capstonebismillah.start
+package com.yps.layani.start
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.maheswari.capstonebismillah.R
+import com.yps.layani.R
 
-class StartActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        setContentView(R.layout.activity_login)
     }
 }

@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.maheswari.capstonebismillah.start.ui.home.HomeFragment"
+        android:name="com.yps.layani.start.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_graph"
-        android:name="com.maheswari.capstonebismillah.start.ui.graph.GraphFragment"
+        android:name="com.yps.layani.start.ui.graph.GraphFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_graph" />
 
     <fragment
         android:id="@+id/nav_notifications"
-        android:name="com.maheswari.capstonebismillah.start.ui.notifications.NotificationsFragment"
+        android:name="com.yps.layani.start.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.maheswari.capstonebismillah.start.ui.notifications.NotificationsFragment"
+        android:name="com.yps.layani.start.ui.notifications.NotificationsFragment"
         android:label="profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
