@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneBismillah">
+        <activity android:name=".start.RegisterActivity"></activity>
+        <activity android:name=".start.LoginActivity" />
+        <activity android:name=".start.StartActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
