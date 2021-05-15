@@ -9,7 +9,8 @@
         android:id="@+id/nav_home"
         android:name="com.yps.layani.start.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/nav_graph"
