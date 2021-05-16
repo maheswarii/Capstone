@@ -20,6 +20,8 @@
     <string name="graphic">Graphic</string>
     <string name="stats">Stats</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
-    <string name="register">Register</string>
-    <string name="password">Password</string>
+    <string name="edit_profile">edit profile</string>
+    <string name="level">Level</string>
+    <string name="exp">exp</string>
+    <string name="complaint">Complaint</string>
 </resources>

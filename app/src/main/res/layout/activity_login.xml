@@ -102,7 +102,7 @@
         android:id="@+id/tv_dont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="4dp"
         android:text="@string/don_t_have_an_account"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +113,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="152dp"
         android:layout_marginTop="4dp"
         android:onClick="btnRegister"
         android:text="@string/register"
