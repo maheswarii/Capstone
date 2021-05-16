@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Layani">
+        <activity android:name=".start.ui.detail.DetailComplaintActivity"></activity>
         <activity
-            android:name="com.yps.layani.start.HomeActivity"
+            android:name=".start.HomeActivity"
             android:label="@string/title_activity_home" />
-        <activity android:name="com.yps.layani.start.RegisterActivity" />
-        <activity android:name="com.yps.layani.start.LoginActivity" />
-        <activity android:name="com.yps.layani.start.StartActivity" />
+        <activity android:name=".start.RegisterActivity" />
+        <activity android:name=".start.LoginActivity" />
+        <activity android:name=".start.StartActivity" />
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,5 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </application>
-
 
 </manifest>

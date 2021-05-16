@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/base"
     tools:context="com.yps.layani.start.ui.profile.ProfileFragment">
 
@@ -11,10 +11,12 @@
         android:id="@+id/profile_img"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/eximage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingClass" />
 
     <TextView
         android:id="@+id/profile_name"
@@ -23,9 +25,10 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/full_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_img" />
@@ -35,10 +38,11 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/tv_email"
-        android:textSize="17sp"
         android:gravity="center"
+        android:text="@string/tv_email"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
@@ -52,57 +56,60 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/btn"
         android:text="@string/edit_profile"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintVertical_bias="0.016"
-        app:layout_constraintTop_toBottomOf="@id/profile_email"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_email"
+        app:layout_constraintVertical_bias="0.016" />
 
     <TextView
         android:id="@+id/tv_level"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="@string/level"
         android:textColor="@color/black"
         android:textSize="25sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_edit"/>
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_edit" />
 
     <TextView
         android:id="@+id/tv_exp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/exp"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/exp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/tv_level"
-        app:layout_constraintTop_toBottomOf="@id/tv_level"/>
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_level" />
 
-        <TextView
-            android:id="@+id/tv_leader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/leaderboard"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@id/tv_exp"
-            app:layout_constraintTop_toBottomOf="@id/tv_exp"
-            android:textSize="25sp"/>
+    <TextView
+        android:id="@+id/tv_leader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/leaderboard"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="500dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="500dp">
+        android:orientation="horizontal">
 
         <TableRow
             android:layout_width="match_parent"
@@ -118,4 +125,43 @@
 
         </TableRow>
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="80dp"
+        android:background="@color/yellow"
+        android:max="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exp"
+        app:layout_goneMarginTop="16dp" />
+
+    <ImageButton
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_star_rate_24"
+        android:backgroundTint="@color/grey"
+        app:layout_constraintBottom_toBottomOf="@+id/progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toEndOf="@+id/progress"
+        app:layout_constraintTop_toTopOf="@+id/progress"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="47dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/grey"
+        android:contentDescription="@string/todo"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_level"
+        app:layout_constraintStart_toEndOf="@+id/tv_level"
+        app:layout_constraintTop_toTopOf="@+id/tv_level" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
