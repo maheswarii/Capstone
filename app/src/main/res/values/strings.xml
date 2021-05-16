@@ -24,4 +24,6 @@
     <string name="level">Level</string>
     <string name="exp">exp</string>
     <string name="complaint">Complaint</string>
+    <string name="profile">Profile</string>
+    <string name="leaderboard">Leaderboard</string>
 </resources>

@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cv_item_complaint"
+    android:id="@+id/cv_item_leader"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -12,7 +12,7 @@
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_complaint"
+        android:id="@+id/item_leader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -29,44 +29,15 @@
             tools:text="Nama" />
 
         <TextView
-            android:id="@+id/komplain"
+            android:id="@+id/exp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="5dp"
             android:gravity="start"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_nama"
             app:layout_constraintTop_toBottomOf="@+id/tv_nama"
-            tools:text="Komplain" />
-
-        <TextView
-            android:id="@+id/ex_komplain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
-            android:padding="2dp"
-            android:text="Permasalahan pada jalan A"
-            android:ellipsize="end"
-            android:gravity="start"
-            android:maxLines="2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/komplain" />
-
-        <TextView
-            android:id="@+id/lokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:gravity="start"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ex_komplain"
-            tools:text="Lokasi"
-            android:layout_marginEnd="20dp"/>
-
+            tools:text="@string/exp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
