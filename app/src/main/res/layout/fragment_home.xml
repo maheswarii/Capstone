@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/base"
     android:orientation="vertical"
-    tools:context="com.yps.layani.start.ui.home.HomeFragment">
+    tools:context="com.yps.layani.admin.ui.home.HomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

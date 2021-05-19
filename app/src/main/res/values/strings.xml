@@ -32,4 +32,7 @@
     <string name="save">save</string>
     <string name="edit_photo">edit photo</string>
     <string name="name">Name</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="title_activity_user">MainActivity</string>
 </resources>

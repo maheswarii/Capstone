@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/base"
-    tools:context=".start.ui.detail.DetailComplaintActivity">
+    tools:context=".admin.ui.detail.DetailComplaintActivity">
 
 
     <TextView
