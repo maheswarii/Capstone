@@ -10,10 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.yps.layani.user.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() {
+class ProfileUserFragment : Fragment() {
 
-  private lateinit var dashboardViewModel: DashboardViewModel
-private var _binding: FragmentDashboardBinding? = null
+  private lateinit var profileUserViewModel: ProfileUserViewModel
+private var _binding: ? = null
   // This property is only valid between onCreateView and
   // onDestroyView.
   private val binding get() = _binding!!
@@ -23,14 +23,14 @@ private var _binding: FragmentDashboardBinding? = null
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+    profileUserViewModel =
+            ViewModelProvider(this).get(ProfileUserViewModel::class.java)
 
     _binding = FragmentDashboardBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
     val textView: TextView = binding.textDashboard
-    dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+    profileUserViewModel.text.observe(viewLifecycleOwner, Observer {
       textView.text = it
     })
     return root

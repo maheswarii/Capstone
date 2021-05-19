@@ -36,4 +36,5 @@
     <string name="contact_us">Contact Us</string>
     <string name="title_activity_user">MainActivity</string>
     <string name="add_compalint">add compalint</string>
+    <string name="add_complaint">add complaint</string>
 </resources>
