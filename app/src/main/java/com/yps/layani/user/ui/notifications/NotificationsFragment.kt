@@ -14,7 +14,7 @@ import com.yps.layani.user.databinding.FragmentNotificationsBinding
 class NotificationsFragment : Fragment() {
 
   private lateinit var notificationsViewModel: NotificationsViewModel
-private var _binding: FragmentNotificationsBinding? = null
+private var _binding: FragmentNotifUserBinding? = null
   // This property is only valid between onCreateView and
   // onDestroyView.
   private val binding get() = _binding!!
