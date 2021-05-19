@@ -28,6 +28,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Name" />
 
+
+
         <TextView
             android:id="@+id/exp"
             android:layout_width="wrap_content"
@@ -35,9 +37,10 @@
             android:layout_marginTop="5dp"
             android:gravity="start"
             android:textSize="14sp"
+            android:layout_marginBottom="4dp"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            tools:text="@string/exp" />
+            tools:text="Rank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

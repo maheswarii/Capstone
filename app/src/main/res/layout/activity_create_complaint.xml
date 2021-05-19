@@ -4,66 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/base"
     tools:context=".user.ui.home.CreateComplaintActivity">
-    
+
     <TextView
         android:id="@+id/tv_location"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
         android:text="Location"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/et_location"
         android:layout_width="250dp"
-        android:layout_height="26dp"
+        android:layout_height="31dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginStart="105dp"
         android:background="@drawable/edit_text"
-        app:layout_constraintStart_toStartOf="@+id/tv_location"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_location"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_complaint"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
         android:text="Complaint"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintStart_toStartOf="@id/tv_location"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_location" />
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="25dp"
         android:background="@drawable/edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/tv_complaint"
-        app:layout_constraintTop_toBottomOf="@+id/tv_complaint"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_complaint" />
 
     <Button
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/btn"
         android:text="@string/add_complaint"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
