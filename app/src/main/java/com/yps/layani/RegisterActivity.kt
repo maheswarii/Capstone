@@ -26,10 +26,10 @@ class RegisterActivity : Activity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        ed_fullname = findViewById(R.id.et_fullname) as EditText
-        ed_email = findViewById(R.id.et_email) as EditText
-        ed_password = findViewById(R.id.et_password) as EditText
-        btn_signup = findViewById(R.id.btn_register) as Button
+        ed_fullname = findViewById(R.id.et_fullname)
+        ed_email = findViewById(R.id.et_email)
+        ed_password = findViewById(R.id.et_password)
+        btn_signup = findViewById(R.id.btn_register)
 
         btn_signup.setOnClickListener(this)
 
@@ -56,8 +56,7 @@ class RegisterActivity : Activity(), View.OnClickListener {
                         ) {
 
                             Log.d("Response::::", response.body().toString())
-                            val loginResponse: RegisterResponse
-                            loginResponse = response.body()!!
+                            val loginResponse: RegisterResponse = response.body()!!
                             if (loginResponse.status) {
                                 finish()
                             } else {
