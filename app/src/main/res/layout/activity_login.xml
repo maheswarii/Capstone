@@ -111,13 +111,12 @@
         app:layout_constraintTop_toBottomOf="@id/btn_sign_in"
         app:layout_constraintVertical_bias="0.005" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/link_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="152dp"
         android:layout_marginTop="4dp"
-        android:onClick="btnRegister"
         android:text="@string/register"
         android:textColor="@color/dark_green"
         android:textStyle="bold"

@@ -22,7 +22,7 @@ class GraphFragment : Fragment() {
         graphViewModel =
             ViewModelProvider(this).get(GraphViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_graph, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        val textView: TextView = root.findViewById(R.id.nav_graph)
         graphViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

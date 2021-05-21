@@ -1,4 +1,9 @@
 package com.yps.layani.admin.response
 
-class LoginResponse {
-}
+import com.yps.layani.admin.model.User
+
+class LoginResponse (
+    val status: Boolean,
+    val message:String,
+    val data: User
+    )
