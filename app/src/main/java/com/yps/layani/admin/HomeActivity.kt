@@ -24,11 +24,11 @@ class HomeActivity : AppCompatActivity() {
 
         val intent = intent
         userId = intent.getIntExtra("id", 0).toString()
-//
+
 //        txt_name = findViewById(R.id.tv_fullname)
 //        txt_email = findViewById(R.id.tv_email)
-
-       // getUser()
+//
+//        getUser()
 
     }
 
@@ -48,7 +48,7 @@ class HomeActivity : AppCompatActivity() {
 //            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
 ////                            Log.d("error::::",t?.message)
 //            }
-
+//
 //        })
 //    }
 
