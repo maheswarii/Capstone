@@ -14,8 +14,8 @@ import retrofit2.Callback
 class HomeActivity : AppCompatActivity() {
     private var userId: String = ""
 
-    private lateinit var txt_name: TextView
-    private lateinit var txt_email: TextView
+//    private lateinit var txt_name: TextView
+//    private lateinit var txt_email: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

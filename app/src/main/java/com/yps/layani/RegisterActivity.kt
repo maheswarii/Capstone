@@ -41,7 +41,7 @@ class RegisterActivity : Activity(), View.OnClickListener {
                 if (validation()) {
                     val json = JSONObject()
                     json.put("email", ed_email.text.toString())
-                    json.put("username", ed_fullname.text.toString())
+                    json.put("name", ed_fullname.text.toString())
                     json.put("password", ed_password.text.toString())
 
                     ApiService.loginApiCall().doRegister(
