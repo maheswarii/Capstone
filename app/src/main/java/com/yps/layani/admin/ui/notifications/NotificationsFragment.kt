@@ -12,20 +12,21 @@ import com.yps.layani.R
 
 class NotificationsFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    //private lateinit var notificationsViewModel: NotificationsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.nav_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+//        notificationsViewModel =
+//            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
+//        val textView: TextView = root.findViewById(R.id.nav_notifications)
+//        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//        return root
+        return inflater.inflate(R.layout.fragment_notifications, container, false)
     }
 }

@@ -24,7 +24,7 @@ interface ListApi {
         @Body signinRequest: LoginRequest
     ): Call<LoginResponse> // body data
 
-    //TODO : Get User
-    @GET("get_user_detail.php")
-    fun getUser(@Query("id") id: String): Call<UserResponse>
+//    //TODO : Get User
+//    @GET("get_user_detail.php")
+//    fun getUser(@Query("id") id: String): Call<UserResponse>
 }

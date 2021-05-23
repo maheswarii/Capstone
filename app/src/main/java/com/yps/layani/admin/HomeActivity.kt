@@ -1,17 +1,16 @@
 package com.yps.layani.admin
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.yps.layani.R
-import com.yps.layani.admin.api.ApiService
-import com.yps.layani.admin.response.UserResponse
-import retrofit2.Call
-import retrofit2.Response
-import retrofit2.Callback
 
 class HomeActivity : AppCompatActivity() {
+
     private var userId: String = ""
 
 //    private lateinit var txt_name: TextView
@@ -20,7 +19,17 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-       title = "Layani"
+
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.nav_home, R.id.nav_graph, R.id.nav_notifications, R.id.nav_profile
+        ).build()
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+        title = "Layani"
 
         val intent = intent
         userId = intent.getIntExtra("id", 0).toString()

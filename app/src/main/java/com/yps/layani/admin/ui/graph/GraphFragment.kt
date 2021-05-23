@@ -12,20 +12,21 @@ import com.yps.layani.R
 
 class GraphFragment : Fragment() {
 
-    private lateinit var graphViewModel: GraphViewModel
+    //private lateinit var graphViewModel: GraphViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        graphViewModel =
-            ViewModelProvider(this).get(GraphViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_graph, container, false)
-        val textView: TextView = root.findViewById(R.id.nav_graph)
-        graphViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+//        graphViewModel =
+//            ViewModelProvider(this).get(GraphViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_graph, container, false)
+//        val textView: TextView = root.findViewById(R.id.nav_graph)
+//        graphViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//        return root
+        return inflater.inflate(R.layout.fragment_graph, container, false)
     }
 }

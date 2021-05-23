@@ -16,10 +16,10 @@
         tools:targetApi="m">
         <activity android:name=".admin.ui.detail.DetailComplaintActivity" />
         <activity
-            android:name=".admin.HomeActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_home" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".admin.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
