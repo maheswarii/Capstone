@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
-import com.yps.layani.admin.HomeActivity
 import com.yps.layani.admin.api.ApiService
 import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.response.LoginResponse
@@ -50,7 +49,7 @@ class LoginActivity : Activity(), View.OnClickListener {
                     json.put("password", ed_password.text.toString())
 
                     ApiService.loginApiCall().doLogin(
-                        LoginRequest(
+                       LoginRequest(
                             ed_email.text.toString(),ed_password.text.toString()
                         )
                     ).enqueue(object : Callback<LoginResponse> {
@@ -59,13 +58,13 @@ class LoginActivity : Activity(), View.OnClickListener {
                             response: Response<LoginResponse>) {
 
                             Log.d("Response::::", response.body().toString())
-                            if (response.body()!!.status){
+                            if (response.body()!!.status == "admin"){
                                 finish()
                                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                                intent.putExtra("id",response.body()!!.data.id)
+                                intent.putExtra("id",response.body()!!.token)
                                 startActivity(intent)
                             }else{
-                                Toast.makeText(applicationContext, response.body()!!.message, Toast.LENGTH_LONG).show()
+                                Toast.makeText(applicationContext, response.body()!!.status, Toast.LENGTH_LONG).show()
                             }
                         }
 

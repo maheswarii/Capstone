@@ -57,7 +57,7 @@ class RegisterActivity : Activity(), View.OnClickListener {
 
                             Log.d("Response::::", response.body().toString())
                             val loginResponse: RegisterResponse = response.body()!!
-                            if (loginResponse.status) {
+                            if (loginResponse.status == true) {
                                 finish()
                             } else {
                                 Toast.makeText(
@@ -103,6 +103,6 @@ class RegisterActivity : Activity(), View.OnClickListener {
             value = false
         }
 
-        return value;
+        return value
     }
 }

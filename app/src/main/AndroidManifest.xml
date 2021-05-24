@@ -14,19 +14,19 @@
         android:theme="@style/Theme.Layani"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".DetailInfoActivity"></activity>
         <activity android:name=".admin.ui.detail.DetailComplaintActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_home" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".admin.HomeActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

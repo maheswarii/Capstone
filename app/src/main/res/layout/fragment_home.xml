@@ -8,26 +8,44 @@
     android:orientation="vertical"
     tools:context="com.yps.layani.admin.ui.home.HomeFragment">
 
+    <TextView
+        android:id="@+id/tv_events"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/karla_bold"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="@string/information"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="370dp"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+
+        android:layout_marginEnd="20dp"
         app:cardCornerRadius="30dp"
+        android:layout_gravity="center"
         app:cardElevation="4dp"
+        android:background="@color/base"
         app:cardMaxElevation="4dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_info"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:src="@color/grey" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_events" />
+
 
     </androidx.cardview.widget.CardView>
 
@@ -36,20 +54,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/karla_bold"
         android:text="@string/complaint"
         android:textColor="@color/black"
-        android:textSize="26sp" />
+        android:textSize="18sp" />
 
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_movies"
+            android:id="@+id/rv_complaint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/grey"

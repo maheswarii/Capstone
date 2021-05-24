@@ -14,7 +14,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_complaint"
         android:layout_width="match_parent"
-        android:layout_height="90dp">
+        android:background="#cfd8dc"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_notif"
@@ -23,6 +24,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="4dp"
             android:textSize="18sp"
+            android:fontFamily="@font/karla_bold"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,22 +39,10 @@
             android:ellipsize="end"
             android:gravity="start"
             android:maxLines="2"
+            android:fontFamily="@font/karla_italic"
             android:text="Permasalahan pada jalan A"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_notif" />
-
-        <TextView
-            android:id="@+id/lokasi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
-            android:gravity="start"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ex_komplain"
-            tools:text="Lokasi" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

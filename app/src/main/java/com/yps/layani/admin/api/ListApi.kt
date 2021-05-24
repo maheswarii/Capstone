@@ -6,25 +6,25 @@ import com.yps.layani.admin.response.LoginResponse
 import com.yps.layani.admin.response.RegisterResponse
 import com.yps.layani.admin.response.UserResponse
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ListApi {
-    //TODO : Register User
+
     @POST("api/register")
+    @Headers("Accept: application/json")
     fun doRegister(
-        @Body signupRequest: RegisterRequest
-    ): Call<RegisterResponse> // body data
+        @Body registerRequest: RegisterRequest
+    ): Call<RegisterResponse>
 
-    //TODO : Login User
+
     @POST("api/login")
+    @Headers("Accept: application/json")
     fun doLogin(
-        @Body signinRequest: LoginRequest
-    ): Call<LoginResponse> // body data
+        @Body loginRequest: LoginRequest
+    ): Call<LoginResponse>
 
-//    //TODO : Get User
-//    @GET("get_user_detail.php")
-//    fun getUser(@Query("id") id: String): Call<UserResponse>
+
+    @GET("get_user_detail.php")
+    @Headers("Accept: application/json")
+    fun getUser(@Query("id") id: String): Call<UserResponse>
 }

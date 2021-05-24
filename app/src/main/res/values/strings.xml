@@ -37,4 +37,7 @@
     <string name="title_activity_user">MainActivity</string>
     <string name="add_compalint">add compalint</string>
     <string name="add_complaint">add complaint</string>
+    <string name="information">Information</string>
+    <string name="info_image">Info Image</string>
+    <string name="gangguan_listrik">Gangguan Listrik</string>
 </resources>

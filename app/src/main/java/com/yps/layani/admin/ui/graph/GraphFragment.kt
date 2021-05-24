@@ -19,6 +19,7 @@ class GraphFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
 //        graphViewModel =
 //            ViewModelProvider(this).get(GraphViewModel::class.java)
 //        val root = inflater.inflate(R.layout.fragment_graph, container, false)
@@ -27,6 +28,7 @@ class GraphFragment : Fragment() {
 //            textView.text = it
 //        })
 //        return root
+
         return inflater.inflate(R.layout.fragment_graph, container, false)
     }
 }

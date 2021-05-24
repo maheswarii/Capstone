@@ -1,9 +1,14 @@
 package com.yps.layani.admin.response
 
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import com.yps.layani.admin.model.User
 
-class RegisterResponse(
-    val status: Boolean,
-    val message:String,
-    val data: User
-)
+data class RegisterResponse(
+    @SerializedName("message")
+    @Expose
+    val message: String,
+    @SerializedName("status")
+    @Expose
+    val status: Boolean
+    )

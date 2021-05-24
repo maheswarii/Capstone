@@ -1,32 +1,80 @@
 package com.yps.layani.admin.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.yps.layani.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.yps.layani.DetailInfoActivity
+import com.yps.layani.admin.adapter.ComplaintAdapter
+import com.yps.layani.admin.adapter.ListInfoAdapter
+import com.yps.layani.admin.datalocal.InfoData
+import com.yps.layani.admin.model.Information
+import androidx.recyclerview.widget.RecyclerView
+import com.yps.layani.admin.datalocal.KomplainData
+import com.yps.layani.admin.model.Complaint
+import com.yps.layani.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
-    //private lateinit var homeViewModel: HomeViewModel
+    private lateinit var adapter: ComplaintAdapter
+//    private lateinit var homeViewModel: HomeViewModel
+
+    private var listInfo: ArrayList<Information> = arrayListOf()
+    private var listKomplain: ArrayList<Complaint> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-//        homeViewModel =
-//            ViewModelProvider(this).get(HomeViewModel::class.java)
-//        val root = inflater.inflate(R.layout.fragment_home, container, false)
-//        val textView: TextView = root.findViewById(R.id.nav_home)
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
-//        return root
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.rvComplaint.setHasFixedSize(true)
+        listKomplain.addAll(KomplainData.listDataKomplain)
+        showRecyclerInfoList()
+
+        binding.rvInfo.setHasFixedSize(true)
+        listInfo.addAll(InfoData.listData)
+        showRecycleComplaintList()
+
+    }
+
+    private fun showRecycleComplaintList() {
+        binding.rvComplaint.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val listKomplaindapter = ComplaintAdapter(listKomplain)
+        binding.rvComplaint.adapter = listKomplaindapter
+
+    }
+
+
+    private fun showRecyclerInfoList() {
+        binding.rvInfo.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val listInfoAdapter = ListInfoAdapter(listInfo)
+        binding.rvInfo.adapter = listInfoAdapter
+
+        listInfoAdapter.setOnItemClickCallback(object : ListInfoAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Information) {
+                showSelectedEvent(data)
+            }
+        })
+    }
+
+    private fun showSelectedEvent(information: Information) {
+        val intent = Intent(context, DetailInfoActivity::class.java).apply {
+            putExtra(DetailInfoActivity.EXTRA_INFO, information)
+        }
+        startActivity(intent)
     }
 }
