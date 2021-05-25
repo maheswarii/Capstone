@@ -3,14 +3,10 @@ package com.yps.layani.admin.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.yps.layani.R
 import com.yps.layani.admin.model.Complaint
-import com.yps.layani.admin.model.Information
-import com.yps.layani.databinding.ListItemBinding
 
 class ComplaintAdapter(private val listKomplain: ArrayList<Complaint>) :
     RecyclerView.Adapter<ComplaintAdapter.ItemViewHolder>() {

@@ -15,6 +15,7 @@ import com.yps.layani.admin.model.Information
 import androidx.recyclerview.widget.RecyclerView
 import com.yps.layani.admin.datalocal.KomplainData
 import com.yps.layani.admin.model.Complaint
+import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -55,6 +56,16 @@ class HomeFragment : Fragment() {
         val listKomplaindapter = ComplaintAdapter(listKomplain)
         binding.rvComplaint.adapter = listKomplaindapter
 
+        listKomplaindapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Complaint) {
+                showSelectedKomplain(data)
+            }
+        })
+    }
+
+    private fun showSelectedKomplain(complaint: Complaint) {
+        val intent = Intent(context, DetailComplaintActivity::class.java)
+        startActivity(intent)
     }
 
 

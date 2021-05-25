@@ -1,13 +1,18 @@
 package com.yps.layani.admin.response
 
 import com.google.gson.annotations.Expose
-import com.yps.layani.admin.model.User
 import com.google.gson.annotations.SerializedName
+import com.yps.layani.admin.model.User
+
 
 data class LoginResponse(
-    @SerializedName("token")
-    @Expose
-    val token: String,
-    @SerializedName("status")
-    @Expose
-    val status: String)
+    val status: String,
+    val message:String,
+    val data: User
+//    @SerializedName("token")
+//    @Expose
+//    val token: String,
+//    @SerializedName("status")
+//    @Expose
+//    val status: String
+    )

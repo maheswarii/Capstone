@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class Complaint(
     var name: String = "",
     var complaint: String = ""
-):Parcelable
+) : Parcelable

@@ -4,11 +4,23 @@ import com.yps.layani.admin.model.Complaint
 
 object KomplainData {
     private val nama = arrayOf(
-        "Maheswari Paramita"
+        "maheswarii",
+        "beliaa",
+        "faris",
+        "ivanliu",
+        "fadhlan",
+        "hashfii",
+        "bubu"
     )
 
     private val komplain = arrayOf(
-        "Lampu mati terus padahal udah bayar!"
+        "Mati lampu terus padahal udah bayar!",
+        "jalan rusak bgt heran",
+        "mati lampu!!",
+        "jatoh grgr jalan rusak",
+        "jalan rusak nyusahin",
+        "gelapp woy mati lampu",
+        "idih jelek bgt jalan rusak"
     )
 
     val listDataKomplain: ArrayList<Complaint>
