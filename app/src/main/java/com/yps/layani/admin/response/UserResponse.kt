@@ -3,6 +3,6 @@ package com.yps.layani.admin.response
 import com.yps.layani.admin.model.User
 
 data class UserResponse (
-    val status: String,
-    val data: User
+    val name: String,
+    val email: String
     )

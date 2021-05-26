@@ -12,7 +12,6 @@ import com.yps.layani.admin.adapter.ComplaintAdapter
 import com.yps.layani.admin.adapter.ListInfoAdapter
 import com.yps.layani.admin.datalocal.InfoData
 import com.yps.layani.admin.model.Information
-import androidx.recyclerview.widget.RecyclerView
 import com.yps.layani.admin.datalocal.KomplainData
 import com.yps.layani.admin.model.Complaint
 import com.yps.layani.admin.ui.detail.DetailComplaintActivity
