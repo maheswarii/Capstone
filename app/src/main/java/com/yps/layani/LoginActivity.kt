@@ -61,7 +61,7 @@ class LoginActivity : Activity(), View.OnClickListener {
                             if (response.body()!!.status == "admin"){
                                 finish()
                                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                                intent.putExtra("id",response.body()!!.data.id)
+                                intent.putExtra("id",response.body()!!.token)
                                 startActivity(intent)
                             }else{
                                 Toast.makeText(applicationContext, response.body()!!.status, Toast.LENGTH_LONG).show()

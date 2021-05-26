@@ -7,8 +7,8 @@ import com.yps.layani.admin.model.User
 
 data class LoginResponse(
     val status: String,
-    val message:String,
-    val data: User
+    val token:String,
+    val data: UserLoginResponse
 //    @SerializedName("token")
 //    @Expose
 //    val token: String,

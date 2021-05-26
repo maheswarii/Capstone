@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 object ApiService {
     private val TAG = "--ApiService"
 
-    private const val BASE_URL = "https://c9be4484267c.ngrok.io"
+    private const val BASE_URL = "https://58da598b1e82.ngrok.io/"
 
     fun loginApiCall() = Retrofit.Builder()
         .baseUrl(BASE_URL)
