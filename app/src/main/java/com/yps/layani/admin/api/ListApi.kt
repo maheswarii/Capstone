@@ -4,7 +4,7 @@ import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.model.RegisterRequest
 import com.yps.layani.admin.response.LoginResponse
 import com.yps.layani.admin.response.RegisterResponse
-import com.yps.layani.admin.response.UserRegisterResponse
+import com.yps.layani.admin.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -26,5 +26,5 @@ interface ListApi {
 
     //TODO : Get User
     @GET("api/user")
-    fun getUser(@Query("id") id: String): Call<UserRegisterResponse>
+    fun getUser(@Query("id") id: String): Call<UserResponse>
 }

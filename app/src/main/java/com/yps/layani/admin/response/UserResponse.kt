@@ -1,6 +1,6 @@
 package com.yps.layani.admin.response
 
-data class UserLoginResponse (
+data class UserResponse (
     val name: String,
     val email: String,
     val photo: Int,

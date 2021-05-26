@@ -1,7 +1,7 @@
 package com.yps.layani.admin.response
 
 class RegisterResponse(
-    val userRegister : UserRegisterResponse,
+    val userRegister : UserResponse,
     val message:String,
     val errors: ErrorResponse
 )

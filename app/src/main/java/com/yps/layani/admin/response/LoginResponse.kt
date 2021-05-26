@@ -1,14 +1,10 @@
 package com.yps.layani.admin.response
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-import com.yps.layani.admin.model.User
-
 
 data class LoginResponse(
     val status: String,
     val token:String,
-    val data: UserLoginResponse
+    val data: UserResponse
 //    @SerializedName("token")
 //    @Expose
 //    val token: String,
