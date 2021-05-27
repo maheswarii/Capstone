@@ -27,4 +27,9 @@ interface ListApi {
     //TODO : Get User
     @GET("api/user")
     fun getUser(@Query("id") id: String): Call<UserResponse>
+
+    //TODO : Get Complaint List
+    @GET("api/user")
+    fun getListComplaint(@Query("id") id: String): Call<UserResponse>
+
 }

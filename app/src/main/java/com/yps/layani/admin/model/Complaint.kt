@@ -1,10 +1,10 @@
 package com.yps.layani.admin.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+import com.google.gson.annotations.SerializedName
 
-@Parcelize
-data class Complaint(
-    var name: String = "",
-    var complaint: String = ""
-) : Parcelable
+data class Complaint (
+    @SerializedName("username")
+    val username: String,
+    @SerializedName("tweet")
+    val tweet: String,
+        )

@@ -1,4 +1,4 @@
-package com.yps.layani
+package com.yps.layani.admin.ui.detail
 
 
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.yps.layani.admin.model.Information
 import com.yps.layani.databinding.ActivityDetailInfoBinding
+
 
 class DetailInfoActivity : AppCompatActivity() {
     private lateinit var binding : ActivityDetailInfoBinding

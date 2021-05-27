@@ -1,14 +1,12 @@
 package com.yps.layani.admin.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.yps.layani.R
 import com.yps.layani.admin.model.Complaint
+import com.yps.layani.databinding.ListItemBinding
 
-class ComplaintAdapter(private val listKomplain: ArrayList<Complaint>) :
+class ComplaintAdapter(private val listKomplain: List<Complaint>) :
     RecyclerView.Adapter<ComplaintAdapter.ItemViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
@@ -21,26 +19,22 @@ class ComplaintAdapter(private val listKomplain: ArrayList<Complaint>) :
         fun onItemClicked(data: Complaint)
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ComplaintAdapter.ItemViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.list_item, viewGroup, false)
-        return ItemViewHolder(view)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ItemViewHolder {
+        val binding =
+            ListItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ItemViewHolder(binding)
     }
+
+    override fun getItemCount(): Int = listKomplain.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val komp = listKomplain[position]
-        holder.name.text = komp.name
-        holder.komplain.text = komp.complaint
+        holder.binding.apply {
+            tvNama.text = listKomplain[position].username
+            tvComplaint.text = listKomplain[position].tweet
 
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listKomplain[holder.adapterPosition]) }
+            root.setOnClickListener { onItemClickCallback.onItemClicked(listKomplain[holder.adapterPosition]) }
+        }
     }
 
-    override fun getItemCount(): Int {
-        return listKomplain.size
-    }
-
-    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var name: TextView = itemView.findViewById(R.id.tvNama)
-        var komplain: TextView = itemView.findViewById(R.id.tvComplaint)
-    }
+     class ItemViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
 }

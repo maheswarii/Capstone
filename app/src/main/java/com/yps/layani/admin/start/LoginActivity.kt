@@ -1,4 +1,4 @@
-package com.yps.layani
+package com.yps.layani.admin.start
 
 import android.app.Activity
 import android.content.Intent
@@ -9,9 +9,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
+import com.yps.layani.R
 import com.yps.layani.admin.api.ApiService
 import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.response.LoginResponse
+import com.yps.layani.admin.ui.profile.ProfileFragment
 import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.Call
@@ -60,7 +62,7 @@ class LoginActivity : Activity(), View.OnClickListener {
                             Log.d("Response::::", response.body().toString())
                             if (response.body()!!.status == "admin"){
                                 finish()
-                                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                                val intent = Intent(this@LoginActivity, ProfileFragment::class.java)
                                 intent.putExtra("id",response.body()!!.token)
                                 startActivity(intent)
                             }else{

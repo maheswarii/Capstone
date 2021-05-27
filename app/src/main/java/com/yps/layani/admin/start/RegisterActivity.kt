@@ -1,4 +1,4 @@
-package com.yps.layani
+package com.yps.layani.admin.start
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.yps.layani.R
 import com.yps.layani.admin.api.ApiService
 import com.yps.layani.admin.model.RegisterRequest
 import com.yps.layani.admin.response.RegisterResponse

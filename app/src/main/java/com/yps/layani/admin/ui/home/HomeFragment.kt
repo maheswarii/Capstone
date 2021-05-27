@@ -7,14 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yps.layani.DetailInfoActivity
+import com.yps.layani.admin.ui.detail.DetailInfoActivity
 import com.yps.layani.admin.adapter.ComplaintAdapter
 import com.yps.layani.admin.adapter.ListInfoAdapter
 import com.yps.layani.admin.datalocal.InfoData
 import com.yps.layani.admin.model.Information
-import com.yps.layani.admin.datalocal.KomplainData
-import com.yps.layani.admin.model.Complaint
-import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -25,7 +22,7 @@ class HomeFragment : Fragment() {
 //    private lateinit var homeViewModel: HomeViewModel
 
     private var listInfo: ArrayList<Information> = arrayListOf()
-    private var listKomplain: ArrayList<Complaint> = arrayListOf()
+    //private var listKomplain: ArrayList<Complaint> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,34 +36,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvComplaint.setHasFixedSize(true)
-        listKomplain.addAll(KomplainData.listDataKomplain)
-        showRecyclerInfoList()
-
         binding.rvInfo.setHasFixedSize(true)
         listInfo.addAll(InfoData.listData)
-        showRecycleComplaintList()
+        showRecyclerInfoList()
 
     }
-
-    private fun showRecycleComplaintList() {
-        binding.rvComplaint.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        val listKomplaindapter = ComplaintAdapter(listKomplain)
-        binding.rvComplaint.adapter = listKomplaindapter
-
-        listKomplaindapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: Complaint) {
-                showSelectedKomplain(data)
-            }
-        })
-    }
-
-    private fun showSelectedKomplain(complaint: Complaint) {
-        val intent = Intent(context, DetailComplaintActivity::class.java)
-        startActivity(intent)
-    }
-
 
     private fun showRecyclerInfoList() {
         binding.rvInfo.layoutManager =
@@ -88,3 +62,27 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 }
+
+
+
+//binding.rvComplaint.setHasFixedSize(true)
+//listKomplain.addAll(KomplainData.listDataKomplain)
+//showRecycleComplaintList()
+
+//private fun showRecycleComplaintList() {
+//    binding.rvComplaint.layoutManager =
+//        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//    val listKomplaindapter = ComplaintAdapter(listKomplain)
+//    binding.rvComplaint.adapter = listKomplaindapter
+//
+//    listKomplaindapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
+//        override fun onItemClicked(data: Complaint) {
+//            showSelectedKomplain(data)
+//        }
+//    })
+//}
+//
+//private fun showSelectedKomplain(complaint: Complaint) {
+//    val intent = Intent(context, DetailComplaintActivity::class.java)
+//    startActivity(intent)
+//}
