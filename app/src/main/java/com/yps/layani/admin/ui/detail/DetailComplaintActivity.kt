@@ -7,16 +7,16 @@ import com.yps.layani.R
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.MediaStore
-import android.widget.Button
 import android.widget.ImageView
 import android.graphics.Bitmap
+import android.view.View
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.yps.layani.DetailInfoActivity
-import com.yps.layani.admin.model.Complaint
-import com.yps.layani.admin.model.Information
+
+const val PESAN = "detail done"
 
 class DetailComplaintActivity : AppCompatActivity() {
 
@@ -84,6 +84,19 @@ class DetailComplaintActivity : AppCompatActivity() {
             var bmp = data?.extras?.get("data") as Bitmap
             show_img.setImageBitmap(bmp)
         }
+    }
+
+    fun kirimPesan(view: View){
+        val editText = findViewById<EditText>(R.id.et_note)
+        //val image = findViewById<ImageView>(R.id.show_img)
+        val pesan = editText.text.toString()
+
+        val toast = Toast.makeText(applicationContext, "Sukses", Toast.LENGTH_SHORT)
+        toast.show()
+
+        val intent = Intent(this, DetailDoneActivity::class.java)
+        intent.putExtra(PESAN, pesan)
+        startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

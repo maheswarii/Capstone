@@ -1,9 +1,8 @@
 package com.yps.layani.admin.response
 
+import com.yps.layani.admin.model.User
+
 data class UserResponse (
-    val name: String,
-    val email: String,
-    val photo: Int,
-    val exp: Int,
-    val rank: String
-        )
+    val status: Boolean,
+    val data: User
+)

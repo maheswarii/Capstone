@@ -18,31 +18,44 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
-    var userId: String = "";
-
     private lateinit var txt_name: TextView
     private lateinit var txt_email: TextView
+    var userId: String = "";
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
+//        val intent = getIntent()
+//        userId = intent.getIntExtra("id", 0).toString()
+
+        txt_name = binding.profileName
+        txt_email = binding.profileEmail
+
+        getUser()
+
         _binding = FragmentProfileBinding.inflate(inflater, container, true)
         return binding.root
 
-//        getUser()
     }
-//    private fun getUser() {
-//        ApiService.loginApiCall().getUser(userId).enqueue(object : Callback<UserResponse> {
-//            override fun onResponse(
-//                call: Call<UserResponse>,
-//                response: Response<UserResponse>
-//            ) {
-//                Log.d("Response User ::::", response.body().toString())
-//                if (response.body()!!.status) {
-//                    txt_name.setText(response.body()!!.data.username)
-//                    txt_email.setText(response.body()!!.data.email)
-//                }
-//            }
 
+    private fun getUser() {
+        ApiService.loginApiCall().getUser(userId).enqueue(object : Callback<UserResponse> {
+            override fun onResponse(
+                call: Call<UserResponse>,
+                response: Response<UserResponse>
+            ) {
+                Log.d("Response User ::::", response.body().toString())
+                if (response.body()!!.status){
+                    txt_name.setText(response.body()!!.data.name)
+                    txt_email.setText(response.body()!!.data.email)
+                }
+            }
+
+            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+//                            Log.d("error::::",t?.message)
+            }
+
+        })
+    }
 }

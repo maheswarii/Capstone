@@ -16,13 +16,14 @@
         android:theme="@style/Theme.Layani"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".admin.ui.detail.DetailDoneActivity"/>
         <activity android:name=".DetailInfoActivity" />
         <activity android:name=".admin.ui.detail.DetailComplaintActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_home" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
