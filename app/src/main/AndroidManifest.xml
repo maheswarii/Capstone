@@ -16,7 +16,16 @@
         android:theme="@style/Theme.Layani"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".admin.ui.detail.DetailDoneActivity"/>
+        <activity
+            android:name=".admin.start.SplashScreenActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".admin.ui.detail.DetailDoneActivity" />
         <activity android:name=".admin.ui.detail.DetailInfoActivity" />
         <activity android:name=".admin.ui.detail.DetailComplaintActivity" />
         <activity

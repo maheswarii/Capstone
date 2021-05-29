@@ -88,7 +88,8 @@ class DetailComplaintActivity : AppCompatActivity() {
 
     fun kirimPesan(view: View){
         val editText = findViewById<EditText>(R.id.et_note)
-        //val image = findViewById<ImageView>(R.id.show_img)
+
+        val image = findViewById<ImageView>(R.id.show_img)
         val pesan = editText.text.toString()
 
         val toast = Toast.makeText(applicationContext, "Sukses", Toast.LENGTH_SHORT)

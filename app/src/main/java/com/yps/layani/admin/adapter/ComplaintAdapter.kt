@@ -6,35 +6,47 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yps.layani.admin.model.Complaint
 import com.yps.layani.databinding.ListItemBinding
 
-class ComplaintAdapter(private val listKomplain: List<Complaint>) :
-    RecyclerView.Adapter<ComplaintAdapter.ItemViewHolder>() {
-    private lateinit var onItemClickCallback: OnItemClickCallback
+class ComplaintAdapter : RecyclerView.Adapter<ComplaintAdapter.CardViewViewHolder>() {
 
+    private var listUsers = ArrayList<Complaint>()
+    private var onItemClickCallback: OnItemClickCallback? = null
+
+    fun setData(dataUser: ArrayList<Complaint>) {
+        listUsers.clear()
+        listUsers.addAll(dataUser)
+        notifyDataSetChanged()
+    }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Complaint)
-    }
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
         val binding =
-            ListItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
-        return ItemViewHolder(binding)
+            ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CardViewViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = listKomplain.size
+    override fun getItemCount(): Int = listUsers.size
+    override fun onBindViewHolder(holder: CardViewViewHolder, position: Int) {
+        holder.bind(listUsers[position])
+    }
 
-    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.binding.apply {
-            tvNama.text = listKomplain[position].username
-            tvComplaint.text = listKomplain[position].tweet
+    inner class CardViewViewHolder(private val binding: ListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(user: Complaint) {
+            with(binding) {
+                tvNama.text = user.username
+                tvComplaint.text = user.body
 
-            root.setOnClickListener { onItemClickCallback.onItemClicked(listKomplain[holder.adapterPosition]) }
+                itemView.setOnClickListener {
+                    onItemClickCallback?.onItemClicked(user)
+                }
+            }
         }
     }
 
-     class ItemViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Complaint)
+    }
 }

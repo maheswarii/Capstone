@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class Complaint (
     @SerializedName("username")
     val username: String,
-    @SerializedName("tweet")
-    val tweet: String,
-        )
+    @SerializedName("body")
+    val body: String,
+    @SerializedName("location")
+    val location: String,
+    @SerializedName("photo")
+    val photo: Int
+)

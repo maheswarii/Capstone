@@ -44,4 +44,8 @@
     <string name="impressive">impressive</string>
     <string name="elsa_jubaedah">Elsa Jubaedah</string>
     <string name="photo">photo</string>
+    <string name="splash">Splash</string>
+    <string name="yps">YPS</string>
+    <string name="add_photo">add photo</string>
+    <string name="ex_rank">30</string>
 </resources>

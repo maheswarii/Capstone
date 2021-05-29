@@ -20,7 +20,7 @@ class ProfileFragment : Fragment() {
 
     private lateinit var txt_name: TextView
     private lateinit var txt_email: TextView
-    var userId: String = "";
+    var userId: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

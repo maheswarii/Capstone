@@ -62,7 +62,7 @@ class LoginActivity : Activity(), View.OnClickListener {
                             Log.d("Response::::", response.body().toString())
                             if (response.body()!!.status == "admin"){
                                 finish()
-                                val intent = Intent(this@LoginActivity, ProfileFragment::class.java)
+                                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
                                 intent.putExtra("id",response.body()!!.token)
                                 startActivity(intent)
                             }else{
