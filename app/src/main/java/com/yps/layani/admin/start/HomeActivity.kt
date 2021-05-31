@@ -11,14 +11,22 @@ import com.yps.layani.R
 
 class HomeActivity : AppCompatActivity() {
 
-    private var userId: String = ""
+    var userId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        userId = intent.getStringExtra("id").toString()
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
+        val args = Bundle().apply {
+            putString("token", userId)
+        }
+        navController.setGraph(R.navigation.mobile_navigation, args)
+
         val appBarConfiguration = AppBarConfiguration.Builder(
             R.id.nav_home, R.id.nav_graph, R.id.nav_notifications, R.id.nav_profile
         ).build()
@@ -28,7 +36,7 @@ class HomeActivity : AppCompatActivity() {
 
         title = "Layani"
 
-        val intent = intent
-        userId = intent.getIntExtra("id", 0).toString()
+
+//        userId = intent.getIntExtra("id", 0).toString()
     }
 }

@@ -1,15 +1,14 @@
 package com.yps.layani.admin.api
 
+import com.yps.layani.admin.model.Complaint
 import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.model.RegisterRequest
+import com.yps.layani.admin.response.ComplaintResponse
 import com.yps.layani.admin.response.LoginResponse
 import com.yps.layani.admin.response.RegisterResponse
 import com.yps.layani.admin.response.UserResponse
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ListApi {
     //TODO : Register User
@@ -29,7 +28,7 @@ interface ListApi {
     fun getUser(@Query("id") id: String): Call<UserResponse>
 
     //TODO : Get Complaint List
-    @GET("api/user")
-    fun getListComplaint(@Query("id") id: String): Call<UserResponse>
+    @GET("api/complaint/index")
+    fun getListComplaint(@Header("Authorization") token: String): Call<ComplaintResponse>
 
 }

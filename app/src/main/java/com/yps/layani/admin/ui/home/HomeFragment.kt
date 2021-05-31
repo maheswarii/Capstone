@@ -1,6 +1,5 @@
 package com.yps.layani.admin.ui.home
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,14 +18,14 @@ import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
+    companion object {
+        private const val ARG_SECTION_PARCEL = "section_parcel"
+    }
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var adapter: ComplaintAdapter
-   private lateinit var homeViewModel: HomeViewModel
-
     private var listInfo: ArrayList<Information> = arrayListOf()
-    //private var listKomplain: ArrayList<Complaint> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,23 +41,25 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvInfo.setHasFixedSize(true)
-        listInfo.addAll(InfoData.listData)
-        showRecyclerInfoList()
-
-        adapter = ComplaintAdapter()
-        adapter.notifyDataSetChanged()
-
-        binding.rvComplaint.layoutManager = LinearLayoutManager(context)
+        binding.rvComplaint.layoutManager = LinearLayoutManager(this.context)
+        val user = arguments?.getParcelable<Complaint>(ARG_SECTION_PARCEL)
+        val homeViewModel: HomeViewModel = ViewModelProvider(
+            this@HomeFragment,
+            ViewModelFactory(requireActivity().application)
+        ).get(HomeViewModel::class.java)
+        val adapter = ComplaintAdapter()
         binding.rvComplaint.adapter = adapter
 
-        homeViewModel = ViewModelProvider(this@HomeFragment, ViewModelFactory(context?.applicationContext as Application)).get(HomeViewModel::class.java)
-        homeViewModel.loadSearchUser().observe(viewLifecycleOwner, { loadUsers ->
-            if (loadUsers != null) {
-                adapter.setData(loadUsers)
+        showLoading(true)
+        homeViewModel.getUserComplaint(arguments?.getString("token") ?: "")
+
+        homeViewModel.users.observe(viewLifecycleOwner, { loadComplaint ->
+            if (loadComplaint != null) {
+                adapter.setData(loadComplaint)
                 showLoading(false)
             }
         })
+
 
         adapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
 
@@ -68,7 +69,12 @@ class HomeFragment : Fragment() {
             }
 
         })
+
+        binding.rvInfo.setHasFixedSize(true)
+        listInfo.addAll(InfoData.listData)
+        showRecyclerInfoList()
     }
+
 
     private fun showRecyclerInfoList() {
         binding.rvInfo.layoutManager =
@@ -98,27 +104,3 @@ class HomeFragment : Fragment() {
         }
     }
 }
-
-
-
-//binding.rvComplaint.setHasFixedSize(true)
-//listKomplain.addAll(KomplainData.listDataKomplain)
-//showRecycleComplaintList()
-
-//private fun showRecycleComplaintList() {
-//    binding.rvComplaint.layoutManager =
-//        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//    val listKomplaindapter = ComplaintAdapter(listKomplain)
-//    binding.rvComplaint.adapter = listKomplaindapter
-//
-//    listKomplaindapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
-//        override fun onItemClicked(data: Complaint) {
-//            showSelectedKomplain(data)
-//        }
-//    })
-//}
-//
-//private fun showSelectedKomplain(complaint: Complaint) {
-//    val intent = Intent(context, DetailComplaintActivity::class.java)
-//    startActivity(intent)
-//}

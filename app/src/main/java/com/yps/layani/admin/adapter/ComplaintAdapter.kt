@@ -11,7 +11,7 @@ class ComplaintAdapter : RecyclerView.Adapter<ComplaintAdapter.CardViewViewHolde
     private var listUsers = ArrayList<Complaint>()
     private var onItemClickCallback: OnItemClickCallback? = null
 
-    fun setData(dataUser: ArrayList<Complaint>) {
+    fun setData(dataUser: List<Complaint>) {
         listUsers.clear()
         listUsers.addAll(dataUser)
         notifyDataSetChanged()
