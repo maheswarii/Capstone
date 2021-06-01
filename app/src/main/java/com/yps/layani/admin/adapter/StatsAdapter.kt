@@ -38,7 +38,7 @@ class StatsAdapter : RecyclerView.Adapter<StatsAdapter.CardViewViewHolder>(){
         fun bind(stats: Stats) {
             with(binding) {
                 tvName.text = stats.name
-//                tvExp.text = stats.exp
+                tvExp.text = stats.exp.toString()
                 tvRank.text = stats.rank
 
 //                itemView.setOnClickListener {

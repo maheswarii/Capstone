@@ -5,74 +5,94 @@
     android:id="@+id/cv_item_complaint"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_margin="4dp"
     android:orientation="vertical"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
-    app:cardMaxElevation="4dp"
-    app:cardUseCompatPadding="true">
+    app:cardMaxElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_complaint"
+        android:background="@color/dark_green"
         android:layout_width="match_parent"
-        android:background="#cfd8dc"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/twitter"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/photo"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/twitter"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:contentDescription="@string/photo"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/tvNama"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginStart="2dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/karla_bold"
+            android:textColor="@color/yellow"
+            android:textSize="18sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView"
             tools:text="Nama" />
 
         <TextView
             android:id="@+id/tvComplaint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
-            android:gravity="start"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/karla_regular"
-            android:textColor="@color/black"
-            android:textSize="14sp"
+            android:gravity="start"
+            android:includeFontPadding="true"
             android:padding="2dp"
+            android:textColor="@color/base"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNama"
+            app:layout_constraintTop_toBottomOf="@+id/lokasi"
             tools:text="Komplain" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/lokasi"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="20dp"-->
-        <!--            android:layout_marginTop="4dp"-->
-        <!--            android:gravity="start"-->
-        <!--            android:textSize="14sp"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/ex_komplain"-->
-        <!--            tools:text="Lokasi"-->
-        <!--            android:layout_marginEnd="20dp"/>-->
+        <TextView
+            android:id="@+id/lokasi"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/karla_italic"
+            android:gravity="start"
+            android:textStyle="italic"
+            android:textColor="@color/base"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            tools:text="Lokasi"
+            tools:ignore="SmallSp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

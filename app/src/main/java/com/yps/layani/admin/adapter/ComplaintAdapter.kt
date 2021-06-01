@@ -38,6 +38,7 @@ class ComplaintAdapter : RecyclerView.Adapter<ComplaintAdapter.CardViewViewHolde
             with(binding) {
                 tvNama.text = user.username
                 tvComplaint.text = user.body
+                lokasi.text = user.location
 
                 itemView.setOnClickListener {
                     onItemClickCallback?.onItemClicked(user)
