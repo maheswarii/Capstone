@@ -45,7 +45,11 @@ class UserPreference constructor(private val mCtx: Context) {
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
+        editor.putString("name", user.name)
         editor.putString("email", user.email)
+        editor.putInt("photo", user.photo)
+        editor.putInt("exp", user.exp)
+        editor.putString("rank", user.rank)
 
         editor.apply()
 

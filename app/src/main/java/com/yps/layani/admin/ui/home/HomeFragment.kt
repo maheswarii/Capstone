@@ -14,6 +14,7 @@ import com.yps.layani.admin.adapter.ListInfoAdapter
 import com.yps.layani.admin.datalocal.InfoData
 import com.yps.layani.admin.model.Complaint
 import com.yps.layani.admin.model.Information
+import com.yps.layani.admin.preferences.UserPreference
 import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.databinding.FragmentHomeBinding
 
@@ -50,8 +51,8 @@ class HomeFragment : Fragment() {
         val adapter = ComplaintAdapter()
         binding.rvComplaint.adapter = adapter
 
-
-        homeViewModel.getUserComplaint(arguments?.getString("token") ?: "")
+        val pref = UserPreference(requireContext())
+        homeViewModel.getUserComplaint(pref.token)
 
         showLoading(true)
         homeViewModel.users.observe(viewLifecycleOwner, { loadComplaint ->

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yps.layani.admin.adapter.StatsAdapter
 import com.yps.layani.admin.model.Stats
+import com.yps.layani.admin.preferences.UserPreference
 import com.yps.layani.admin.ui.home.ViewModelFactory
 import com.yps.layani.databinding.FragmentLeaderboardBinding
 
@@ -42,7 +43,8 @@ class LeaderboardFragment : Fragment() {
         binding.rvStats.adapter = adapter
 
         showLoading(true)
-        leaderboardViewModel.getLeaderboard(arguments?.getString("token") ?: "")
+        val pref = UserPreference(requireContext())
+        leaderboardViewModel.getLeaderboard(pref.token)
 
         leaderboardViewModel.stats.observe(viewLifecycleOwner, { loadStats ->
             if (loadStats != null) {

@@ -1,6 +1,7 @@
 package com.yps.layani.admin.api
 
 import com.yps.layani.admin.model.Complaint
+import com.yps.layani.admin.model.DetailRequest
 import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.model.RegisterRequest
 import com.yps.layani.admin.response.*
@@ -32,4 +33,7 @@ interface ListApi {
     @GET("api/leaderboard")
     fun getListLeaderboard(@Header("Authorization") token: String): Call<StatsResponse>
 
+    //TODO : Detail Complaint
+    @POST("complaint/1/accept")
+    fun doSolved(@Body solvedRequest: DetailRequest): Call<DetailResponse> // body data
 }

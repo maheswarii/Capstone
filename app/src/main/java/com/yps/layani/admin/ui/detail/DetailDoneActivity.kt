@@ -10,10 +10,9 @@ class DetailDoneActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_done)
 
-        val pesan = intent.getStringExtra(PESAN)
-        val textView = findViewById<TextView>(R.id.tv_note_detail).apply {
-            text = pesan
-        }
+//        val textView = findViewById<TextView>(R.id.tv_note_detail).apply {
+//            text = pesan
+//        }
 
         setTitle("Pesan")
     }

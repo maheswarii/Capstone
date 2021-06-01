@@ -48,7 +48,8 @@ class RegisterActivity : Activity(), View.OnClickListener {
                     ApiService.loginApiCall().doRegister(
                         RegisterRequest(
                             ed_email.text.toString(),
-                            ed_fullname.text.toString(), ed_password.text.toString()
+                            ed_fullname.text.toString(),
+                            ed_password.text.toString()
                         )
                     ).enqueue(object : Callback<RegisterResponse> {
                         override fun onResponse(
