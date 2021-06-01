@@ -49,7 +49,7 @@ class DetailComplaintActivity : AppCompatActivity() {
         when (requestCode) {
             CAMERA_PERMISSION ->
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    var i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     startActivityForResult(i, 123)
                 } else {
                     Toast.makeText(
@@ -73,7 +73,7 @@ class DetailComplaintActivity : AppCompatActivity() {
                 CAMERA_PERMISSION
             )
         } else {
-            var i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(i, 123)
         }
     }
@@ -81,7 +81,7 @@ class DetailComplaintActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 123) {
-            var bmp = data?.extras?.get("data") as Bitmap
+            val bmp = data?.extras?.get("data") as Bitmap
             show_img.setImageBitmap(bmp)
         }
     }

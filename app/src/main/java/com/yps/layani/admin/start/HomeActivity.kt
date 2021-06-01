@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         navController.setGraph(R.navigation.mobile_navigation, args)
 
         val appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.nav_home, R.id.nav_graph, R.id.nav_notifications, R.id.nav_profile
+            R.id.nav_home, R.id.nav_leaderboard, R.id.nav_notifications, R.id.nav_profile
         ).build()
 
         setupActionBarWithNavController(navController, appBarConfiguration)

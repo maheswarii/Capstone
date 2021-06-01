@@ -50,16 +50,19 @@ class HomeFragment : Fragment() {
         val adapter = ComplaintAdapter()
         binding.rvComplaint.adapter = adapter
 
-        showLoading(true)
+
         homeViewModel.getUserComplaint(arguments?.getString("token") ?: "")
 
+        showLoading(true)
         homeViewModel.users.observe(viewLifecycleOwner, { loadComplaint ->
             if (loadComplaint != null) {
                 adapter.setData(loadComplaint)
                 showLoading(false)
+
+                binding.lottieEmpty.visibility =
+                    if (loadComplaint.isNotEmpty()) View.GONE else View.VISIBLE
             }
         })
-
 
         adapter.setOnItemClickCallback(object : ComplaintAdapter.OnItemClickCallback {
 

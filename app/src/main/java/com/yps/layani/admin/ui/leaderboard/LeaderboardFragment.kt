@@ -1,4 +1,4 @@
-package com.yps.layani.admin.ui.graph
+package com.yps.layani.admin.ui.leaderboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yps.layani.admin.adapter.StatsAdapter
 import com.yps.layani.admin.model.Stats
 import com.yps.layani.admin.ui.home.ViewModelFactory
-import com.yps.layani.databinding.FragmentGraphBinding
+import com.yps.layani.databinding.FragmentLeaderboardBinding
 
-class GraphFragment : Fragment() {
+class LeaderboardFragment : Fragment() {
 
     companion object {
         private const val ARG_SECTION_PARCEL = "section_parcel"
     }
 
-    private var _binding: FragmentGraphBinding? = null
+    private var _binding: FragmentLeaderboardBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class GraphFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentGraphBinding.inflate(inflater, container, false)
+        _binding = FragmentLeaderboardBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,18 +36,21 @@ class GraphFragment : Fragment() {
 
         binding.rvStats.layoutManager = LinearLayoutManager(this.context)
         val user = arguments?.getParcelable<Stats>(ARG_SECTION_PARCEL)
-        val graphViewModel: GraphViewModel = ViewModelProvider(
-            this@GraphFragment, ViewModelFactory(requireActivity().application)).get(GraphViewModel::class.java)
+        val leaderboardViewModel: LeaderboardViewModel = ViewModelProvider(
+            this@LeaderboardFragment, ViewModelFactory(requireActivity().application)).get(LeaderboardViewModel::class.java)
         val adapter = StatsAdapter()
         binding.rvStats.adapter = adapter
 
         showLoading(true)
-        graphViewModel.getLeaderboard(arguments?.getString("token") ?: "")
+        leaderboardViewModel.getLeaderboard(arguments?.getString("token") ?: "")
 
-        graphViewModel.stats.observe(viewLifecycleOwner, { loadStats ->
+        leaderboardViewModel.stats.observe(viewLifecycleOwner, { loadStats ->
             if (loadStats != null) {
                 adapter.setData(loadStats)
                 showLoading(false)
+
+                binding.lottieEmpty.visibility =
+                    if (loadStats.isNotEmpty()) View.GONE else View.VISIBLE
             }
         })
     }

@@ -1,4 +1,4 @@
-package com.yps.layani.admin.ui.graph
+package com.yps.layani.admin.ui.leaderboard
 
 import android.app.Application
 import android.util.Log
@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GraphViewModel(application: Application) : AndroidViewModel(application) {
+class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
     val stats = MutableLiveData<List<Stats>>()
 
     fun getLeaderboard(token: String) {
