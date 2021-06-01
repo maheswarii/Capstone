@@ -7,7 +7,7 @@ import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.model.RegisterRequest
 import com.yps.layani.admin.model.User
 
-class UserPreference private constructor(private val mCtx: Context) {
+class UserPreference constructor(private val mCtx: Context) {
     val isLoggedIn: String
         get() {
             val sharedPreferences =

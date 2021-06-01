@@ -19,13 +19,14 @@ import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
 
-class LoginActivity : Activity(), View.OnClickListener {
+class LoginActivity() : Activity(), View.OnClickListener {
 
     private lateinit var ed_email : EditText
     private lateinit var ed_password : EditText
     private lateinit var btn_signin : Button
     private lateinit var link_register : AppCompatTextView
-    lateinit var loginPref: UserPreference
+    //private lateinit var loginPref: UserPreference
+    val loginPref = UserPreference(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
