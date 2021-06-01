@@ -12,8 +12,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import com.yps.layani.R
 import com.yps.layani.admin.api.ApiService
 import com.yps.layani.admin.model.LoginRequest
+import com.yps.layani.admin.preferences.UserPreference
 import com.yps.layani.admin.response.LoginResponse
-import com.yps.layani.admin.ui.profile.ProfileFragment
 import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.Call
@@ -25,6 +25,7 @@ class LoginActivity : Activity(), View.OnClickListener {
     private lateinit var ed_password : EditText
     private lateinit var btn_signin : Button
     private lateinit var link_register : AppCompatTextView
+    lateinit var loginPref: UserPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class LoginActivity : Activity(), View.OnClickListener {
 
         btn_signin.setOnClickListener(this)
         link_register.setOnClickListener(this)
+
     }
 
     override fun onClick(v: View?) {
@@ -52,7 +54,8 @@ class LoginActivity : Activity(), View.OnClickListener {
 
                     ApiService.loginApiCall().doLogin(
                        LoginRequest(
-                            ed_email.text.toString(),ed_password.text.toString()
+                            ed_email.text.toString(),
+                           ed_password.text.toString()
                         )
                     ).enqueue(object : Callback<LoginResponse> {
                         override fun onResponse(
@@ -61,9 +64,10 @@ class LoginActivity : Activity(), View.OnClickListener {
 
                             Log.d("Response::::", response.body().toString())
                             if (response.body()!!.status == "admin"){
+                                UserPreference.getInstance(applicationContext).saveUser(response.body()?.data!!)
                                 finish()
                                 val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-                                intent.putExtra("id",response.body()!!.token)
+                                loginPref.saveToken(response.body()!!.token)
                                 startActivity(intent)
                             }else{
                                 Toast.makeText(applicationContext, response.body()!!.status, Toast.LENGTH_LONG).show()

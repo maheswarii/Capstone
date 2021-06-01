@@ -36,7 +36,5 @@ class HomeActivity : AppCompatActivity() {
 
         title = "Layani"
 
-
-//        userId = intent.getIntExtra("id", 0).toString()
     }
 }

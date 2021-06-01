@@ -31,9 +31,8 @@
             tools:text="Name" />
 
 
-
         <TextView
-            android:id="@+id/exp"
+            android:id="@+id/tv_exp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -43,6 +42,19 @@
             android:layout_marginBottom="4dp"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="@string/exp" />
+
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:textSize="14sp"
+            android:fontFamily="@font/karla_regular"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_exp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_exp"
             tools:text="Rank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

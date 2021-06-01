@@ -3,10 +3,7 @@ package com.yps.layani.admin.api
 import com.yps.layani.admin.model.Complaint
 import com.yps.layani.admin.model.LoginRequest
 import com.yps.layani.admin.model.RegisterRequest
-import com.yps.layani.admin.response.ComplaintResponse
-import com.yps.layani.admin.response.LoginResponse
-import com.yps.layani.admin.response.RegisterResponse
-import com.yps.layani.admin.response.UserResponse
+import com.yps.layani.admin.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -30,5 +27,9 @@ interface ListApi {
     //TODO : Get Complaint List
     @GET("api/complaint/index")
     fun getListComplaint(@Header("Authorization") token: String): Call<ComplaintResponse>
+
+    //TODO : Get Leaderboard List
+    @GET("api/leaderboard")
+    fun getListLeaderboard(@Header("Authorization") token: String): Call<StatsResponse>
 
 }

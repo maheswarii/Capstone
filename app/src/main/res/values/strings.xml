@@ -48,4 +48,5 @@
     <string name="yps">YPS</string>
     <string name="add_photo">add photo</string>
     <string name="ex_rank">30</string>
+    <string name="must_be_8_characters">must be 8 characters</string>
 </resources>

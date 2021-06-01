@@ -1,13 +1,43 @@
 package com.yps.layani.admin.ui.graph
 
-import androidx.lifecycle.LiveData
+import android.app.Application
+import android.util.Log
+import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.yps.layani.admin.api.ApiService
+import com.yps.layani.admin.model.Stats
+import com.yps.layani.admin.response.StatsResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class GraphViewModel : ViewModel() {
+class GraphViewModel(application: Application) : AndroidViewModel(application) {
+    val stats = MutableLiveData<List<Stats>>()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is graph Fragment"
+    fun getLeaderboard(token: String) {
+        val request = ApiService.loginApiCall()
+        request.getListLeaderboard("Bearer $token").enqueue(object : Callback<StatsResponse> {
+            override fun onResponse(
+                call: Call<StatsResponse>,
+                response: Response<StatsResponse>
+            ) {
+                stats.postValue(response.body()?.users ?: listOf<Stats>())
+                Log.d(
+                    "onResponse",
+                    "getUser: ${response.body()} - ${stats.value?.size}"
+                )
+            }
+
+            override fun onFailure(call: Call<StatsResponse>, t: Throwable) {
+                Toast.makeText(
+                    getApplication(),
+                    "Error: " + t.message.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                Log.e("onFailure", t.message.toString())
+            }
+
+        })
     }
-    val text: LiveData<String> = _text
 }
