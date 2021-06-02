@@ -6,14 +6,14 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.yps.layani.admin.api.ApiService
-import com.yps.layani.admin.model.Stats
+import com.yps.layani.admin.model.User
 import com.yps.layani.admin.response.StatsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
-    val stats = MutableLiveData<List<Stats>>()
+    val stats = MutableLiveData<List<User>>()
 
     fun getLeaderboard(token: String) {
         val request = ApiService.loginApiCall()
@@ -22,7 +22,7 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
                 call: Call<StatsResponse>,
                 response: Response<StatsResponse>
             ) {
-                stats.postValue(response.body()?.users ?: listOf<Stats>())
+                stats.postValue(response.body()?.users ?: listOf<User>())
                 Log.d(
                     "onResponse",
                     "getUser: ${response.body()} - ${stats.value?.size}"

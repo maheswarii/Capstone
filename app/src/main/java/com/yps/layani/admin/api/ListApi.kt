@@ -11,19 +11,15 @@ import retrofit2.http.*
 interface ListApi {
     //TODO : Register User
     @POST("api/register")
-    fun doRegister(
-        @Body signupRequest: RegisterRequest
-    ): Call<RegisterResponse> // body data
+    fun doRegister(@Body signupRequest: RegisterRequest): Call<RegisterResponse> // body data
 
     //TODO : Login User
     @POST("api/login")
-    fun doLogin(
-        @Body signinRequest: LoginRequest
-    ): Call<LoginResponse> // body data
+    fun doLogin(@Body signinRequest: LoginRequest): Call<LoginResponse> // body data
 
     //TODO : Get User
     @GET("api/user")
-    fun getUser(@Query("id") id: String): Call<UserResponse>
+    fun getUserProfile(@Header("Authorization") token: String): Call<UserResponse>
 
     //TODO : Get Complaint List
     @GET("api/complaint/index")

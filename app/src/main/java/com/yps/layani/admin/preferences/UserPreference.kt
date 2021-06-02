@@ -2,18 +2,9 @@ package com.yps.layani.admin.preferences
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import com.yps.layani.admin.model.Complaint
-import com.yps.layani.admin.model.LoginRequest
-import com.yps.layani.admin.model.RegisterRequest
 import com.yps.layani.admin.model.User
 
 class UserPreference constructor(private val mCtx: Context) {
-    val isLoggedIn: String
-        get() {
-            val sharedPreferences =
-                mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            return sharedPreferences.getString("status", null)!!
-        }
 
     val token : String
         get() = mCtx.getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE).getString("token", "")!!
@@ -31,12 +22,11 @@ class UserPreference constructor(private val mCtx: Context) {
             val sharedPreferences =
                 mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return User(
-                sharedPreferences.getString("id", null)!!,
-                sharedPreferences.getString("name", null)!!,
-                sharedPreferences.getString("email", null)!!,
-                sharedPreferences.getInt("photo", -1),
-                sharedPreferences.getInt("exp", -1),
-                sharedPreferences . getString ("rank", null)!!
+                sharedPreferences.getString("name", "")!!,
+                sharedPreferences.getString("email", "")!!,
+                sharedPreferences.getInt("photo", 0),
+                sharedPreferences.getInt("exp", 0),
+                sharedPreferences . getString ("rank", "")!!
             )
         }
 
@@ -54,6 +44,13 @@ class UserPreference constructor(private val mCtx: Context) {
         editor.apply()
 
     }
+
+//    val isLoggedIn: String
+//        get() {
+//            val sharedPreferences =
+//                mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+//            return sharedPreferences.getString("status", null)!!
+//        }
 
 
     fun clear() {

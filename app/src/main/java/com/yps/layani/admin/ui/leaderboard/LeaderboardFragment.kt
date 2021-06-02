@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yps.layani.admin.adapter.StatsAdapter
-import com.yps.layani.admin.model.Stats
 import com.yps.layani.admin.preferences.UserPreference
 import com.yps.layani.admin.ui.home.ViewModelFactory
 import com.yps.layani.databinding.FragmentLeaderboardBinding
@@ -42,7 +41,7 @@ class LeaderboardFragment : Fragment() {
 
 
         binding.rvStats.layoutManager = LinearLayoutManager(this.context)
-        val user = arguments?.getParcelable<Stats>(ARG_SECTION_PARCEL)
+        //val user = arguments?.getParcelable<User>(ARG_SECTION_PARCEL)
         val leaderboardViewModel: LeaderboardViewModel = ViewModelProvider(
             this@LeaderboardFragment, ViewModelFactory(requireActivity().application)).get(LeaderboardViewModel::class.java)
         val adapter = StatsAdapter()

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.yps.layani.admin.ui.leaderboard.LeaderboardViewModel
+import com.yps.layani.admin.ui.profile.ProfileViewModel
 
 class ViewModelFactory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -11,6 +12,8 @@ class ViewModelFactory(private val application: Application) : ViewModelProvider
                 return HomeViewModel(application) as T
             }else if ( modelClass.isAssignableFrom(LeaderboardViewModel::class.java)) {
                 return LeaderboardViewModel(application) as T
+            }else if ( modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
+                return ProfileViewModel(application) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

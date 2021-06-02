@@ -39,9 +39,4 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
         })
     }
-
-//    fun loadSearchUser(): LiveData<ArrayList<Complaint>> {
-//        Log.d("loadUsers", "loadUsers:${users.value?.size}")
-//        return users
-//    }
 }

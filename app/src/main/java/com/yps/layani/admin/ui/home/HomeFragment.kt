@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvComplaint.layoutManager = LinearLayoutManager(this.context)
-        val user = arguments?.getParcelable<Complaint>(ARG_SECTION_PARCEL)
+        //val user = arguments?.getParcelable<Complaint>(ARG_SECTION_PARCEL)
         val homeViewModel: HomeViewModel = ViewModelProvider(
             this@HomeFragment,
             ViewModelFactory(requireActivity().application)
