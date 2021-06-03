@@ -8,18 +8,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.provider.MediaStore
 import android.graphics.Bitmap
-import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.yps.layani.admin.api.ApiService
-import com.yps.layani.admin.model.DetailRequest
-import com.yps.layani.admin.response.DetailResponse
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.yps.layani.admin.ui.home.HomeFragment
 
 class DetailComplaintActivity : AppCompatActivity() {
 
@@ -46,9 +38,14 @@ class DetailComplaintActivity : AppCompatActivity() {
             checkCamera()
         }
 
-        //btn_done.setOnClickListener(this)
+        btn_done.setOnClickListener {
+            val intent = Intent(this@DetailComplaintActivity, HomeFragment::class.java)
+            startActivity(intent)
+        }
     }
 
+    //            Toast.makeText(applicationContext, "Anda mendapatkan Exp!", Toast.LENGTH_SHORT)
+//                .show()
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

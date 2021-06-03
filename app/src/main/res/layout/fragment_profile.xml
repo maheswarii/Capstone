@@ -4,23 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base"
-    tools:context="com.yps.layani.admin.ui.profile.ProfileFragment">
+    android:background="@color/base">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="380dp"
         android:background="@drawable/login_menu"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_img"
             android:layout_width="160dp"
             android:layout_height="160dp"
-           android:layout_gravity="center"
-            android:layout_marginTop="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
             android:src="@drawable/ic_baseline_account_circle_24"
             tools:ignore="MissingClass" />
 
@@ -28,7 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_gravity="center"
+            android:textColor="@color/base"
             android:text="@string/add_photo"
+            android:backgroundTint="@color/green"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
 
@@ -37,27 +40,26 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/karla_bold"
             android:text="@string/elsa_jubaedah"
             android:textAlignment="center"
             android:textColor="@color/yellow"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold"
-
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/profile_email"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/karla_regular"
             android:text="@string/email"
             android:textAlignment="center"
             android:textColor="@color/base"
-            android:fontFamily="@font/karla_regular"
-            android:textSize="17sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_name" />
@@ -65,65 +67,104 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/exp"
+        android:id="@+id/expProgress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/yellow"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="100dp"
         android:max="100"
+        android:minWidth="100dp"
+        android:minHeight="20dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/gradientprogressbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_exp"
         app:layout_goneMarginTop="16dp" />
 
     <TextView
-        android:id="@+id/level"
+        android:id="@+id/textViewHorizontalProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="@string/_0"
+        android:fontFamily="@font/karla_regular"
+        android:textColor="@color/dark_green"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/expProgress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/expProgress"
+        app:layout_constraintTop_toTopOf="@+id/expProgress" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
+        android:src="@drawable/ic_baseline_star_rate_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/level"
         android:textColor="@color/black"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:textSize="28sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/tv_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/karla_bold"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/karla_regular"
         android:text="@string/ex_rank"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/level"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/level"
-        app:layout_constraintTop_toTopOf="@+id/level"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/level" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/exp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_level" />
 
     <TextView
         android:id="@+id/tv_exp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="2dp"
         android:fontFamily="@font/karla_bold"
         android:text="@string/exp"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_level" />
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

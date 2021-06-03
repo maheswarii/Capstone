@@ -1,7 +1,10 @@
 package com.yps.layani.admin.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User (
 
     @SerializedName("name")
@@ -14,5 +17,6 @@ data class User (
     val exp: Int,
     @SerializedName("rank")
     val rank: String
-)
+
+): Parcelable
 

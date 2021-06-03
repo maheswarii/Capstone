@@ -50,4 +50,5 @@
     <string name="must_be_8_characters">must be 8 characters</string>
     <string name="exps">Exp :</string>
     <string name="ranks">Rank :</string>
+    <string name="_0">0</string>
 </resources>

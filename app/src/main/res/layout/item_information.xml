@@ -31,16 +31,18 @@
             <TextView
                 android:id="@+id/tv_name_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:padding="8dp"
-                android:fontFamily="@font/karla_italic"
-                android:textStyle="italic"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="150dp"
                 android:background="#7F000000"
+                android:fontFamily="@font/karla_italic"
+                android:padding="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/gangguan_listrik"
                 android:textColor="@color/white"
-                android:gravity="center"
-                android:text="@string/gangguan_listrik" />
+                android:textSize="24sp"
+                android:textStyle="italic" />
 
         </RelativeLayout>
 

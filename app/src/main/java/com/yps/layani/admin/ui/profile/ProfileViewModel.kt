@@ -6,10 +6,8 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.yps.layani.admin.api.ApiService
 import com.yps.layani.admin.model.User
-import com.yps.layani.admin.response.StatsResponse
 import com.yps.layani.admin.response.UserResponse
 import retrofit2.Call
 import retrofit2.Callback

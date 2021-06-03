@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.yps.layani.admin.model.User
 
 data class UserResponse (
-    @SerializedName("data")
+    @SerializedName("user")
     val data: User
 )

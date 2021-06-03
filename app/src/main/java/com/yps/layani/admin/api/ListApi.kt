@@ -1,9 +1,6 @@
 package com.yps.layani.admin.api
 
-import com.yps.layani.admin.model.Complaint
-import com.yps.layani.admin.model.DetailRequest
-import com.yps.layani.admin.model.LoginRequest
-import com.yps.layani.admin.model.RegisterRequest
+import com.yps.layani.admin.model.*
 import com.yps.layani.admin.response.*
 import retrofit2.Call
 import retrofit2.http.*
