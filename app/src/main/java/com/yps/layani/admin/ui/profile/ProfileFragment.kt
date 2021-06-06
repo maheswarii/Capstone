@@ -1,7 +1,6 @@
 package com.yps.layani.admin.ui.profile
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -11,8 +10,6 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,36 +17,23 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.yps.layani.R
 import com.yps.layani.admin.preferences.UserPreference
-import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.admin.ui.home.ViewModelFactory
 import com.yps.layani.databinding.FragmentProfileBinding
 
 
 class ProfileFragment : Fragment() {
 
-
-//    private lateinit var viewModel: ProfileViewModel
-
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var profile_image: ImageView
-    private lateinit var imageButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
-
-       imageButton = binding.imageButton
-        profile_image = binding.profileImg
-
-        imageButton.setOnClickListener {
-            checkCamera()
-        }
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -63,7 +47,7 @@ class ProfileFragment : Fragment() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            DetailComplaintActivity.CAMERA_PERMISSION ->
+            CAMERA_PERMISSION ->
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     startActivityForResult(i, 123)
@@ -86,7 +70,7 @@ class ProfileFragment : Fragment() {
             ActivityCompat.requestPermissions(
                 requireActivity(),
                 arrayOf(Manifest.permission.CAMERA),
-                DetailComplaintActivity.CAMERA_PERMISSION
+                CAMERA_PERMISSION
             )
         } else {
             val i = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -104,6 +88,13 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val imageButton = binding.imageButton
+        profile_image = binding.profileImg
+
+        imageButton.setOnClickListener {
+            checkCamera()
+        }
 
         val profileViewModel: ProfileViewModel = ViewModelProvider(
             this@ProfileFragment, ViewModelFactory(requireActivity().application)
@@ -129,7 +120,7 @@ class ProfileFragment : Fragment() {
                     binding.expProgress.progress = progressStatus
                     binding.textViewHorizontalProgress.text =
                         "${progressStatus}/${binding.expProgress.max}" + "%"
-                    handler?.sendEmptyMessageDelayed(0, 100 )
+                    handler?.sendEmptyMessageDelayed(0, 100)
 
                     true
                 })
@@ -138,28 +129,10 @@ class ProfileFragment : Fragment() {
 
             }
         })
-    Toast.makeText(context, "profile fragment", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "profile fragment", Toast.LENGTH_SHORT).show()
     }
 
     companion object {
-        private const val ARG_SECTION_PARCEL = "section_parcel"
         private const val CAMERA_PERMISSION = 3
     }
 }
-
-//        val name = pref.user.name
-//        binding.profileName.text = name
-//
-//        val email = pref.user.email
-//        binding.profileEmail.text = email
-//
-//        val photo = pref.user.photo
-//        binding.profileImg. = photo.toString()
-//
-//        val exp = pref.user.exp
-//        binding.tvExp.text = exp.toString()
-//
-//        val rank = pref.user.email
-//        binding.tvLevel.text = rank
-//
-//    }
