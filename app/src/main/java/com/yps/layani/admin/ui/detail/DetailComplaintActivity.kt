@@ -22,12 +22,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailComplaintActivity : AppCompatActivity(), View.OnClickListener {
+class DetailComplaintActivity : AppCompatActivity() {
 
-    private lateinit var ed_note: EditText
-    private lateinit var image_button: ImageButton
-    private lateinit var show_img: ImageView
-    private lateinit var btn_done: Button
+    private lateinit var note: EditText
+    private lateinit var imageButton: ImageButton
+    private lateinit var showImg: ImageView
+    private lateinit var done: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,23 +38,68 @@ class DetailComplaintActivity : AppCompatActivity(), View.OnClickListener {
             setDisplayHomeAsUpEnabled(true)
         }
 
-        ed_note = findViewById(R.id.et_note)
-        image_button = findViewById(R.id.image_button)
-        show_img = findViewById(R.id.show_img)
-        btn_done = findViewById(R.id.btn_done)
+        note = findViewById(R.id.et_note)
+        imageButton = findViewById(R.id.image_button)
+        showImg = findViewById(R.id.show_img)
+        done = findViewById(R.id.btn_done)
+   onClick(done)
 
-        btn_done.setOnClickListener(this)
-
-        image_button.setOnClickListener {
+        imageButton.setOnClickListener {
             checkCamera()
         }
 
+        done.setOnClickListener {
+            val intent = Intent(this@DetailComplaintActivity, HomeFragment::class.java)
+            startActivity(intent)
+            Toast.makeText(applicationContext, "Anda mendapatkan Exp!", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
+    private fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_done -> {
+                if (validation()) {
+                    val json = JSONObject()
+                    json.put("note", note.text.toString())
 
+                    ApiService.loginApiCall().doSolved(
+                        DetailRequest(
+                            note.text.toString()
+                        )
+                    ).enqueue(object : Callback<DetailResponse> {
+                        override fun onResponse(
+                            call: Call<DetailResponse>,
+                            response: Response<DetailResponse>
+                        ) {
 
-    //            Toast.makeText(applicationContext, "Anda mendapatkan Exp!", Toast.LENGTH_SHORT)
-//                .show()
+                            Log.d("Response Solved::::", response.body().toString())
+                            val detailResponse: DetailResponse = response.body()!!
+                            if (detailResponse.message == "finished") {
+                                finish()
+                                val intent = Intent(
+                                    this@DetailComplaintActivity,
+                                    DetailDoneActivity::class.java
+                                )
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "GA BERHASIL",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                        }
+
+                    })
+                }
+            }
+        }
+    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -97,68 +142,22 @@ class DetailComplaintActivity : AppCompatActivity(), View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 123) {
             val bmp = data?.extras?.get("data") as Bitmap
-            show_img.setImageBitmap(bmp)
-        }
-    }
-
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.btn_done -> {
-                if (validation()) {
-                    val json = JSONObject()
-                    json.put("note", ed_note.text.toString())
-
-                    ApiService.loginApiCall().doSolved(
-                        DetailRequest(
-                            ed_note.text.toString()
-                        )
-                    ).enqueue(object : Callback<DetailResponse> {
-                        override fun onResponse(
-                            call: Call<DetailResponse>,
-                            response: Response<DetailResponse>
-                        ) {
-
-                            Log.d("Response Solved::::", response.body().toString())
-                            val detailResponse: DetailResponse = response.body()!!
-                            if (detailResponse.message == "Unauthenticated.") {
-                                finish()
-                                val intent = Intent(
-                                    this@DetailComplaintActivity,
-                                    HomeFragment::class.java
-                                )
-                                startActivity(intent)
-                            } else {
-                                Toast.makeText(
-                                    applicationContext,
-                                    response.body()!!.message,
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-
-                        override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
-                        }
-
-                    })
-                }
-            }
+            showImg.setImageBitmap(bmp)
         }
     }
 
     fun validation(): Boolean {
         var value = true
 
-        val note = ed_note.text.toString().trim()
+        val notes = note.text.toString().trim()
 
-        if (note.isEmpty()) {
-            ed_note.error = "Note required"
-            ed_note.requestFocus()
+        if (notes.isEmpty()) {
+            note.error = "Note required"
+            note.requestFocus()
             value = false
         }
         return value
     }
-
-
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

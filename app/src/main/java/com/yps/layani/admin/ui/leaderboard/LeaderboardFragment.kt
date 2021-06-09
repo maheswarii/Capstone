@@ -15,10 +15,6 @@ import com.yps.layani.databinding.FragmentLeaderboardBinding
 
 class LeaderboardFragment : Fragment() {
 
-    companion object {
-        private const val ARG_SECTION_PARCEL = "section_parcel"
-    }
-
     private var _binding: FragmentLeaderboardBinding? = null
     private val binding get() = _binding!!
 
@@ -26,7 +22,7 @@ class LeaderboardFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
@@ -41,7 +37,6 @@ class LeaderboardFragment : Fragment() {
 
 
         binding.rvStats.layoutManager = LinearLayoutManager(this.context)
-        //val user = arguments?.getParcelable<User>(ARG_SECTION_PARCEL)
         val leaderboardViewModel: LeaderboardViewModel = ViewModelProvider(
             this@LeaderboardFragment, ViewModelFactory(requireActivity().application)).get(LeaderboardViewModel::class.java)
         val adapter = StatsAdapter()

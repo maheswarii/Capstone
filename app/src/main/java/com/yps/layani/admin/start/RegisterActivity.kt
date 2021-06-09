@@ -18,21 +18,21 @@ import retrofit2.Response
 
 class RegisterActivity : Activity(), View.OnClickListener {
 
-    private lateinit var ed_fullname: EditText
-    private lateinit var ed_email: EditText
-    private lateinit var ed_password: EditText
-    private lateinit var btn_signup: Button
+    private lateinit var fullName: EditText
+    private lateinit var edEmail: EditText
+    private lateinit var edPassword: EditText
+    private lateinit var signup: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        ed_fullname = findViewById(R.id.et_fullname)
-        ed_email = findViewById(R.id.et_email)
-        ed_password = findViewById(R.id.et_password)
-        btn_signup = findViewById(R.id.btn_register)
+        fullName = findViewById(R.id.et_fullname)
+        edEmail = findViewById(R.id.et_email)
+        edPassword = findViewById(R.id.et_password)
+        signup = findViewById(R.id.btn_register)
 
-        btn_signup.setOnClickListener(this)
+        signup.setOnClickListener(this)
 
     }
 
@@ -41,15 +41,15 @@ class RegisterActivity : Activity(), View.OnClickListener {
             R.id.btn_register -> {
                 if (validation()) {
                     val json = JSONObject()
-                    json.put("email", ed_email.text.toString())
-                    json.put("name", ed_fullname.text.toString())
-                    json.put("password", ed_password.text.toString())
+                    json.put("email", edEmail.text.toString())
+                    json.put("name", fullName.text.toString())
+                    json.put("password", edPassword.text.toString())
 
                     ApiService.loginApiCall().doRegister(
                         RegisterRequest(
-                            ed_email.text.toString(),
-                            ed_fullname.text.toString(),
-                            ed_password.text.toString()
+                            edEmail.text.toString(),
+                            fullName.text.toString(),
+                            edPassword.text.toString()
                         )
                     ).enqueue(object : Callback<RegisterResponse> {
                         override fun onResponse(
@@ -82,26 +82,26 @@ class RegisterActivity : Activity(), View.OnClickListener {
     fun validation(): Boolean {
         var value = true
 
-        val email = ed_email.text.toString().trim()
-        val password = ed_password.text.toString().trim()
-        val name = ed_fullname.text.toString().trim()
+        val email = edEmail.text.toString().trim()
+        val password = edPassword.text.toString().trim()
+        val name = fullName.text.toString().trim()
 
         if (email.isEmpty()) {
-            ed_email.error = "Email required"
-            ed_email.requestFocus()
+            edEmail.error = "Email required"
+            edEmail.requestFocus()
             value = false
         }
 
 
         if (password.isEmpty()) {
-            ed_password.error = "Password required"
-            ed_password.requestFocus()
+            edPassword.error = "Password required"
+            edPassword.requestFocus()
             value = false
         }
 
         if (name.isEmpty()) {
-            ed_fullname.error = "Name required"
-            ed_fullname.requestFocus()
+            fullName.error = "Name required"
+            fullName.requestFocus()
             value = false
         }
 

@@ -1,6 +1,5 @@
 package com.yps.layani.admin.datalocal
 
-import com.yps.layani.R
 import com.yps.layani.admin.model.Information
 
 object InfoData {

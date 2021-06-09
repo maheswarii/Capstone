@@ -10,10 +10,6 @@ class DetailDoneActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_done)
 
-//        val textView = findViewById<TextView>(R.id.tv_note_detail).apply {
-//            text = pesan
-//        }
-
         setTitle("Pesan")
     }
 }

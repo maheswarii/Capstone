@@ -20,7 +20,7 @@ class UserPreference constructor(private val mCtx: Context) {
     val user: User
         get() {
             val sharedPreferences =
-                mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+                mCtx.getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE)
             return User(
                 sharedPreferences.getString("name", "")!!,
                 sharedPreferences.getString("email", "")!!,
@@ -32,7 +32,7 @@ class UserPreference constructor(private val mCtx: Context) {
 
     fun saveUser(user: User) {
 
-        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
         editor.putString("name", user.name)
@@ -44,13 +44,6 @@ class UserPreference constructor(private val mCtx: Context) {
         editor.apply()
 
     }
-
-//    val isLoggedIn: String
-//        get() {
-//            val sharedPreferences =
-//                mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-//            return sharedPreferences.getString("status", null)!!
-//        }
 
 
     fun clear() {
