@@ -20,9 +20,6 @@ import com.yps.layani.admin.ui.detail.DetailComplaintActivity
 import com.yps.layani.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    companion object {
-        private const val ARG_SECTION_PARCEL = "section_parcel"
-    }
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -45,7 +42,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvComplaint.layoutManager = LinearLayoutManager(this.context)
-        //val user = arguments?.getParcelable<Complaint>(ARG_SECTION_PARCEL)
         val homeViewModel: HomeViewModel = ViewModelProvider(
             this@HomeFragment,
             ViewModelFactory(requireActivity().application)
@@ -71,9 +67,9 @@ class HomeFragment : Fragment() {
 
             override fun onItemClicked(data: Complaint) {
                 val intent = Intent(context, DetailComplaintActivity::class.java)
+                //intent.putExtra("id", Complaint.)
                 startActivity(intent)
             }
-
         })
 
         binding.rvInfo.setHasFixedSize(true)

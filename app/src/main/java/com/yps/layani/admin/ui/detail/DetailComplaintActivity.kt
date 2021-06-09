@@ -22,7 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailComplaintActivity : AppCompatActivity() {
+class DetailComplaintActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var ed_note: EditText
     private lateinit var image_button: ImageButton
@@ -43,15 +43,15 @@ class DetailComplaintActivity : AppCompatActivity() {
         show_img = findViewById(R.id.show_img)
         btn_done = findViewById(R.id.btn_done)
 
+        btn_done.setOnClickListener(this)
+
         image_button.setOnClickListener {
             checkCamera()
         }
 
-        btn_done.setOnClickListener {
-            val intent = Intent(this@DetailComplaintActivity, HomeFragment::class.java)
-            startActivity(intent)
-        }
     }
+
+
 
     //            Toast.makeText(applicationContext, "Anda mendapatkan Exp!", Toast.LENGTH_SHORT)
 //                .show()
@@ -101,49 +101,49 @@ class DetailComplaintActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onClick(v: View?) {
-//        when (v?.id) {
-//            R.id.btn_done -> {
-//                if (validation()) {
-//                    val json = JSONObject()
-//                    json.put("note", ed_note.text.toString())
-//
-//                    ApiService.loginApiCall().doSolved(
-//                        DetailRequest(
-//                            ed_note.text.toString()
-//                        )
-//                    ).enqueue(object : Callback<DetailResponse> {
-//                        override fun onResponse(
-//                            call: Call<DetailResponse>,
-//                            response: Response<DetailResponse>
-//                        ) {
-//
-//                            Log.d("Response Solved::::", response.body().toString())
-//                            val detailResponse: DetailResponse = response.body()!!
-//                            if (detailResponse.status == "finished") {
-//                                finish()
-//                                val intent = Intent(
-//                                    this@DetailComplaintActivity,
-//                                    DetailDoneActivity::class.java
-//                                )
-//                                startActivity(intent)
-//                            } else {
-//                                Toast.makeText(
-//                                    applicationContext,
-//                                    "GA BERHASIL YEU",
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                        }
-//
-//                        override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
-//                        }
-//
-//                    })
-//                }
-//            }
-//        }
-//    }
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_done -> {
+                if (validation()) {
+                    val json = JSONObject()
+                    json.put("note", ed_note.text.toString())
+
+                    ApiService.loginApiCall().doSolved(
+                        DetailRequest(
+                            ed_note.text.toString()
+                        )
+                    ).enqueue(object : Callback<DetailResponse> {
+                        override fun onResponse(
+                            call: Call<DetailResponse>,
+                            response: Response<DetailResponse>
+                        ) {
+
+                            Log.d("Response Solved::::", response.body().toString())
+                            val detailResponse: DetailResponse = response.body()!!
+                            if (detailResponse.message == "Unauthenticated.") {
+                                finish()
+                                val intent = Intent(
+                                    this@DetailComplaintActivity,
+                                    HomeFragment::class.java
+                                )
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(
+                                    applicationContext,
+                                    response.body()!!.message,
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+
+                        override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                        }
+
+                    })
+                }
+            }
+        }
+    }
 
     fun validation(): Boolean {
         var value = true
@@ -157,6 +157,8 @@ class DetailComplaintActivity : AppCompatActivity() {
         }
         return value
     }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

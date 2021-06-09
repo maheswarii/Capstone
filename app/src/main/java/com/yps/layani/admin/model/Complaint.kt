@@ -6,6 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Complaint (
+    @SerializedName("id")
+    val id: Int,
     @SerializedName("username")
     val username: String,
     @SerializedName("body")
@@ -13,5 +15,10 @@ data class Complaint (
     @SerializedName("location")
     val location: String,
     @SerializedName("photo")
-    val photo: Int
+    val photo: Int,
+    @SerializedName("status")
+    val status: String,
+    @SerializedName("note")
+    val note: String,
+
 ): Parcelable

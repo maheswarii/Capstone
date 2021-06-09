@@ -27,6 +27,6 @@ interface ListApi {
     fun getListLeaderboard(@Header("Authorization") token: String): Call<StatsResponse>
 
     //TODO : Detail Complaint
-    @POST("complaint/1/accept")
+    @POST("api/complaint/1/finish")
     fun doSolved(@Body solvedRequest: DetailRequest): Call<DetailResponse> // body data
 }

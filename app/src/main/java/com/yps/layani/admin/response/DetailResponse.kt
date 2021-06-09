@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.yps.layani.admin.model.Complaint
 
 class DetailResponse (
-    @SerializedName("status")
-    val status: String
+    @SerializedName("message")
+    val message: String
 )
